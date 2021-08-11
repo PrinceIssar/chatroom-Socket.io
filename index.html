@@ -14,26 +14,14 @@
         <img src="/img/chatbox.png"  height="40px" alt="">
         <h1>Chit chat</h1>
     </div>
-    <div class="message_area">
-
-    <div class="incoming message">
-        <h4>Prince</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, sequi.</p>
-
-    </div>
-
-        <div class="outgoing message">
-            <h4>Prince</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, sequi.</p>
-
-        </div>
-    </div>
+    <div class="message_area"></div>
     <textarea name="" id="textarea" cols="30" rows="1" placeholder="Write a message..."></textarea>
     <div>
         
     </div>
 </section>
 
+<script src="/socket.io/socket.io.js"></script><!--client library will load here , socket is coming from node serve we created-->
 <script src="/client.js"></script>
 </body>
 </html>
