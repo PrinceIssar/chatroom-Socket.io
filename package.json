@@ -1,0 +1,27 @@
+{
+  "name": "chatroom-Socket.io",
+  "version": "1.0.0",
+  "description": "1. Create npm project 2.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PrinceIssar/chatroom-Socket.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PrinceIssar/chatroom-Socket.io/issues"
+  },
+  "homepage": "https://github.com/PrinceIssar/chatroom-Socket.io#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
