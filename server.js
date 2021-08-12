@@ -1,8 +1,6 @@
 const express = require('express')
-const {use} = require("express/lib/router");
 const app = express()
 const http =require('http').createServer(app)
-
 
 const PORT = process.env.PORT || 3000 // when deployed that env would our port otherwise default as 3000
 
@@ -31,6 +29,8 @@ io.on('connection', (socket)=> {
         //send the message to client or browsers
         socket.broadcast.emit('message',msg)  // broadcast:  it'll send all the connection the message but not only to the sender
     })
+
+
 //leave message
 //     socket.on('disconnect', message =>{
 //         socket.broadcast.emit('left', name[socket.id]);

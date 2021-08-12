@@ -1,5 +1,6 @@
 const socket = io()
 
+
 let name;
 let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message_area')
@@ -75,3 +76,4 @@ socket.on('message', (msg)=>{
 function scrollToBottom(){
  messageArea.scrollTop = messageArea.scrollHeight
 }
+
