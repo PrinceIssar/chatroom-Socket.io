@@ -25,8 +25,14 @@ function sendMessage(message){ //
  //append the message
  appendMessage(msg,'outgoing')
 
+ // now once the msg is send we need to remove from the textarea the msg
+textarea.value ='';
+ // call the function for scroll
+ scrollToBottom()
+
+
  // Send to server
- socket.emit('messageSend', msg)
+ socket.emit('message', msg)
 }
 
 function appendMessage(msg, type){
@@ -43,8 +49,18 @@ function appendMessage(msg, type){
  messageArea.appendChild(mainDiv)
 }
 
-// receive messages
+// Receive messages
 // this will be client code this runs in browser not in server
-socket.on('messageEvent', ()=>{
+socket.on('message', (msg)=>{
+ // this will start sending msg to both browser
+ appendMessage(msg, 'incoming') // it need to parameter one msg and other is incoming
 
+ // 2nd time when we receive msg ; call the function for scroll
+ scrollToBottom()
 })
+
+// when written many msg it should scroll down
+
+function scrollToBottom(){
+ messageArea.scrollTop = messageArea.scrollHeight
+}

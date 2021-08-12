@@ -26,8 +26,8 @@ const io = require('socket.io')(http)
 io.on('connection', (socket)=> {
     console.log('Connected...')
     //listen to emit
-    socket.on('messageSend', (msg)=>{
+    socket.on('message', (msg)=>{
         //send the message to client or browsers
-        socket.broadcast.emit('messageEvent',msg)  // broadcast:  it'll send all the connection the message but not only to the sender
+        socket.broadcast.emit('message',msg)  // broadcast:  it'll send all the connection the message but not only to the sender
     })
 })
