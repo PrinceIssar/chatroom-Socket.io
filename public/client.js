@@ -3,6 +3,7 @@ const socket = io()
 let name;
 let textarea = document.querySelector('#textarea')
 let messageArea = document.querySelector('.message_area')
+let audio = new Audio('/img/ring.mp3')
 
 do{
  name = prompt('Please enter your name: ')
@@ -47,6 +48,7 @@ function appendMessage(msg, type){
  mainDiv.innerHTML= markup
 
  messageArea.appendChild(mainDiv)
+
 }
 
 // Receive messages
@@ -54,13 +56,22 @@ function appendMessage(msg, type){
 socket.on('message', (msg)=>{
  // this will start sending msg to both browser
  appendMessage(msg, 'incoming') // it need to parameter one msg and other is incoming
-
+// audio
+ audio.play();
  // 2nd time when we receive msg ; call the function for scroll
  scrollToBottom()
+
+ //left
+ socket.on('left', name=>{
+  appendMessage(`${name} left the chat`, 'left')
+ })
+
 })
 
-// when written many msg it should scroll down
 
+
+
+// when written many msg it should scroll down
 function scrollToBottom(){
  messageArea.scrollTop = messageArea.scrollHeight
 }

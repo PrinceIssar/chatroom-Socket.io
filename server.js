@@ -1,4 +1,5 @@
 const express = require('express')
+const {use} = require("express/lib/router");
 const app = express()
 const http =require('http').createServer(app)
 
@@ -30,4 +31,20 @@ io.on('connection', (socket)=> {
         //send the message to client or browsers
         socket.broadcast.emit('message',msg)  // broadcast:  it'll send all the connection the message but not only to the sender
     })
+//leave message
+//     socket.on('disconnect', message =>{
+//         socket.broadcast.emit('left', name[socket.id]);
+//         delete user[socket.id];
+//     })
+
+    // socket.on('forceDisconnect', function(){
+    //     socket.disconnect(true);
+    // });
+
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('left', socket.id);
+    });
 })
+
+
+
