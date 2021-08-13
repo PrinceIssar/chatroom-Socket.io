@@ -64,8 +64,10 @@ socket.on('message', (msg)=>{
 
  //left
  socket.on('left', name=>{
-  appendMessage(`${name} left the chat`, 'left')
+  appendMessage({message:`${name} left the chat`,user: ''
+ }, 'incoming')
  })
+
 
 })
 

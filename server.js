@@ -32,18 +32,16 @@ io.on('connection', (socket)=> {
 
 
 //leave message
-//     socket.on('disconnect', message =>{
-//         socket.broadcast.emit('left', name[socket.id]);
-//         delete user[socket.id];
-//     })
+    socket.on('disconnect', message =>{
+        let name = socket.id;
+        socket.broadcast.emit('left', name);
+    })
 
-    // socket.on('forceDisconnect', function(){
-    //     socket.disconnect(true);
-    // });
 
-    socket.on('disconnect', () => {
-        socket.broadcast.emit('left', socket.id);
-    });
+
+
+
+
 })
 
 
