@@ -4,7 +4,8 @@
   "description": "1. Create npm project 2.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server"
+    "dev": "nodemon server",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
